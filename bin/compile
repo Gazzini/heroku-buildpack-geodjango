@@ -185,9 +185,6 @@ source $BIN_DIR/steps/gdal
 # Install dependencies with Pip.
 source $BIN_DIR/steps/pip-install
 
-# Django collectstatic support.
-sub-env $BIN_DIR/steps/collectstatic
-
 
 # ### Finalize
 #
@@ -209,6 +206,8 @@ set-default-env PYTHONPATH /app/
 # Install sane-default script for WEB_CONCURRENCY environment variable.
 cp $ROOT_DIR/vendor/python.webconcurrency.sh $WEBCONCURRENCY_PROFILE_PATH
 
+# Django collectstatic support.
+sub-env $BIN_DIR/steps/collectstatic
 
 # Experimental post_compile hook.
 bpwatch start post_compile
